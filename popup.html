@@ -9,43 +9,30 @@
 <body>
 
   <div class="container container-cust">
-    <div class="card card-signin">
+    <div class="card card-start-game">
       <div class="card-header">
-        <h3 class="text-center">FoodForThots</h3>
+        <img src="images/icon48.png" class="rounded float-left">
+        <h3 class="card-title text-center">FoodForThots</h3>
+        <h6 class="card-subtitle mb-2 text-muted text-center">The in-browser word game</h6>
       </div>
       <div class="card-body">
-        <h5 class="text-center card-title">Login to Duolingo</h5>
-        <form class="form-signin" id="loginForm">
-
-          <div class="form-label-group">
-            <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email address" required autofocus>
+        <div class="dropdown text-center start-game spacer">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select a language
+          </button>
+          <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+            <input class="form-control" type="text" id="langSearch" placeholder="Search languages" aria-label="Search">
+            <a class="dropdown-item" href="#">English</a>
+            <a class="dropdown-item" href="#">French</a>
+            <a class="dropdown-item" href="#">Klingon</a>
+            <a class="dropdown-item" href="#">Swahili</a>
+            <a class="dropdown-item" href="#">Binary</a>
+            <a class="dropdown-item" href="#">Javascript</a>
           </div>
-
-          <div class="form-label-group">
-            <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" required>
-          </div>
-
-          <button id="loginBtn" type="submit" class="btn btn-primary btn-block">LOGIN</button>
-
-        </form>
-      </div>
-    </div>
-  </div>
-  <hr>
-
-  <div class="container">
-    <div class="dropdown text-center col">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select a language
-      </button>
-      <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
-        <input class="form-control" type="text" id="langSearch" placeholder="Search a language" aria-label="Search">
-        <a class="dropdown-item" href="#">English</a>
-        <a class="dropdown-item" href="#">French</a>
-        <a class="dropdown-item" href="#">Klingon</a>
-        <a class="dropdown-item" href="#">Swahili</a>
-        <a class="dropdown-item" href="#">Binary</a>
-        <a class="dropdown-item" href="#">Javascript</a>
+        </div>
+        <div class="text-center start-game">
+          <button class="btn btn-success text-center" id="startBtn">Let's go!</button>
+        </div>
       </div>
     </div>
   </div>

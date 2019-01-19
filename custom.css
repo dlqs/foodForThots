@@ -1,34 +1,34 @@
 body {
-	height: 400px;
+	height: 350px;
 	width: 300px;
+}
+
+.spacer {
+	margin: 0;
+	padding: 0;
+	height: 50px;
 }
 
 .container-cust {
 	margin-top: 1rem;
 }
 
-.card-signin .card-title {
-	margin-bottom: 1rem;
-}
-
-.form-signin {
+.start-game {
 	width: 100%;
 }
 
-.form-signin .btn {
-	border-radius: 5rem;
+.start-game .dropdown-toggle {
+	width: 100%;
+}
+
+.start-game .btn.btn-success {
+	width: 100%;
 	letter-spacing: .1rem;
 	font-weight: bold;
 }
 
-.form-label-group {
-	position: relative;
+.card-start-game .card-title {
 	margin-bottom: 1rem;
-}
-
-.form-label-group input {
-	height: auto;
-	border-radius: 2rem;
 }
 
 .pre-scrollable {
