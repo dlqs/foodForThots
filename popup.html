@@ -3,9 +3,10 @@
 
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="custom.css">
   <style>
     body {
-      height: 300px;
+      height: 450px;
       width: 300px;
     }
   </style>
@@ -13,24 +14,31 @@
 
 <body>
 
-  <div class="container">
-    <h4>Login to Duolingo</h4>
-    <form id="loginForm">
-
-      <div class="form-group">
-        <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email address" required autofocus>
+  <div class="container container-cust">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title text-center">FoodForThots</h3>
       </div>
+      <div class="card-body">
+        <h5 class="text-center">Login to Duolingo</h5>
+        <form class="form-signin" id="loginForm">
 
-      <div class="form-group">
-        <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+          <div class="form-label-group">
+            <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email address" required autofocus>
+          </div>
+
+          <div class="form-label-group">
+            <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+          </div>
+
+          <button id="loginBtn" type="submit" class="btn btn-primary btn-block">LOGIN</button>
+
+        </form>
       </div>
-
-      <button id="loginBtn" type="submit" class="btn btn-primary">Login</button>
-
-    </form>
+    </div>
   </div>
-
-  <div class="container-fluid">
+  <hr>
+  <div class="container">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select a language

@@ -1,0 +1,23 @@
+.container-cust {
+	margin-top: 1rem;
+}
+
+.form-signin {
+	width: 100%;
+}
+
+.form-signin .btn {
+	border-radius: 5rem;
+	letter-spacing: .1rem;
+	font-weight: bold;
+}
+
+.form-label-group {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.form-label-group input {
+	height: auto;
+	border-radius: 2rem;
+}
