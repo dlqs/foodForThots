@@ -2,13 +2,27 @@
   "name": "foodForThots",
   "version": "1.0",
   "description": "Replace your words",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage"
+  ],
   "background": {
     "scripts": [
       "background.js"
     ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://developer.chrome.com/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
