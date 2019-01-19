@@ -4,6 +4,7 @@ $('.dropdown-menu a').click(function() {
 	$(this).parents('.dropdown').find('.btn').val($(this).data('value'));
 });
 
-$('#submitBtn').click(function() {
-	console.log('Login');
+$('#submitBtn').click(function(event) {
+	 event.preventDefault();
+	 console.log('login');
 });
