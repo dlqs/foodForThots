@@ -1,0 +1,37 @@
+body {
+	height: 350px;
+	width: 300px;
+}
+
+.spacer {
+	margin: 0;
+	padding: 0;
+	height: 50px;
+}
+
+.container-cust {
+	margin-top: 1rem;
+}
+
+.start-game {
+	width: 100%;
+}
+
+.start-game .dropdown-toggle {
+	width: 100%;
+}
+
+.start-game .btn.btn-success {
+	width: 100%;
+	letter-spacing: .1rem;
+	font-weight: bold;
+}
+
+.card-start-game .card-title {
+	margin-bottom: 1rem;
+}
+
+.pre-scrollable {
+	max-height: 150px;
+	overflow-y: scroll;
+}

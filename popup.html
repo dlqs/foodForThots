@@ -3,42 +3,38 @@
 
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <style>
-    body {
-      height: 300px;
-      width: 300px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="custom.css">
 </head>
 
 <body>
 
-  <div class="container">
-    <h4>Login to Duolingo</h4>
-    <form id="loginForm">
-
-      <div class="form-group">
-        <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email address" required autofocus>
+  <div class="container container-cust">
+    <div class="card card-start-game">
+      <div class="card-header">
+        <img src="images/icon48.png" class="rounded float-left">
+        <h3 class="card-title text-center">FoodForThots</h3>
+        <h6 class="card-subtitle mb-2 text-muted text-center">The in-browser word game</h6>
       </div>
-
-      <div class="form-group">
-        <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" required>
-      </div>
-
-      <button id="loginBtn" type="submit" class="btn btn-primary">Login</button>
-
-    </form>
-  </div>
-
-  <div class="container-fluid">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select a language
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">English</a>
-        <a class="dropdown-item" href="#">French</a>
-        <a class="dropdown-item" href="#">Klingon</a>
+      <div class="card-body">
+        <form id="startGameForm">
+          <div class="dropdown text-center start-game spacer">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select a language
+            </button>
+            <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+              <input class="form-control" type="text" id="langSearch" placeholder="Search languages" aria-label="Search">
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">French</a>
+              <a class="dropdown-item" href="#">Klingon</a>
+              <a class="dropdown-item" href="#">Swahili</a>
+              <a class="dropdown-item" href="#">Binary</a>
+              <a class="dropdown-item" href="#">Javascript</a>
+            </div>
+          </div>
+          <div class="text-center start-game">
+            <input class="btn btn-success text-center" id="startBtn" type="submit" value="Let's go!">
+          </div>
+        </form>
       </div>
     </div>
   </div>
