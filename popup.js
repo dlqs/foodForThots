@@ -27,7 +27,12 @@ $('.dropdown-menu a').click(function () {
   $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
 });
 
-$('#submitBtn').click(function (event) {
+// Handle login
+$('#loginForm').submit(function(event) {
   event.preventDefault();
+
+  let email = $('input').eq(0).val();	 
+  let password = $('input').eq(1).val();
+
   getDuoLingoData();
 });
