@@ -7,20 +7,15 @@
     "declarativeContent",
     "storage"
   ],
-  "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
-  },
   "content_scripts": [
     {
       "matches": [
-        "https://developer.chrome.com/*"
+        "https://*/*"
       ],
       "js": [
         "contentScript.js"
-      ]
+      ],
+      "run_at": "document_end"
     }
   ],
   "page_action": {

@@ -1,1 +1,1 @@
-document.body.innerHTML = document.body.innerHTML.replace(new RegExp("Chrome", "g"), "FUCK");
+document.body.innerHTML = document.body.innerHTML.replace(new RegExp("integrated", "gi"), "FUCK");
