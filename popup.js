@@ -45,3 +45,9 @@ $('#loginForm').submit(function(event) {
 
   getDuoLingoData();
 });
+
+// Start game
+$('#startGameForm').submit(function(event) {
+  event.preventDefault();
+  const selectedLang = $('#dropdownMenuButton').text();
+});

@@ -16,23 +16,25 @@
         <h6 class="card-subtitle mb-2 text-muted text-center">The in-browser word game</h6>
       </div>
       <div class="card-body">
-        <div class="dropdown text-center start-game spacer">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select a language
-          </button>
-          <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
-            <input class="form-control" type="text" id="langSearch" placeholder="Search languages" aria-label="Search">
-            <a class="dropdown-item" href="#">English</a>
-            <a class="dropdown-item" href="#">French</a>
-            <a class="dropdown-item" href="#">Klingon</a>
-            <a class="dropdown-item" href="#">Swahili</a>
-            <a class="dropdown-item" href="#">Binary</a>
-            <a class="dropdown-item" href="#">Javascript</a>
+        <form id="startGameForm">
+          <div class="dropdown text-center start-game spacer">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select a language
+            </button>
+            <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+              <input class="form-control" type="text" id="langSearch" placeholder="Search languages" aria-label="Search">
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">French</a>
+              <a class="dropdown-item" href="#">Klingon</a>
+              <a class="dropdown-item" href="#">Swahili</a>
+              <a class="dropdown-item" href="#">Binary</a>
+              <a class="dropdown-item" href="#">Javascript</a>
+            </div>
           </div>
-        </div>
-        <div class="text-center start-game">
-          <button class="btn btn-success text-center" id="startBtn">Let's go!</button>
-        </div>
+          <div class="text-center start-game">
+            <input class="btn btn-success text-center" id="startBtn" type="submit" value="Let's go!">
+          </div>
+        </form>
       </div>
     </div>
   </div>
