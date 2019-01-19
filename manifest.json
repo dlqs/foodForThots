@@ -30,5 +30,6 @@
   "web_accessible_resources": [
      "corpus/*.json"
   ],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css https://code.jquery.com/jquery-3.3.1.slim.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js https://code.jquery.com/jquery-1.7.1.min.js; object-src 'self'"
 }
