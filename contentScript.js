@@ -7,7 +7,9 @@ function replaceForLanguage(name) {
       for (let key in json) {
         if (json.hasOwnProperty(key)) {
           console.log(`Replacing ${key} with ${json[key]}`);
-          document.body.innerHTML = document.body.innerHTML.replace(new RegExp(key, "gi"), json[key]);
+          let re = '\\s+' + key;
+          let val = ' ' + json[key];
+          document.body.innerHTML = document.body.innerHTML.replace(new RegExp(re, "gi"), val);
         }
       }
     })
