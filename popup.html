@@ -4,12 +4,6 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="custom.css">
-  <style>
-    body {
-      height: 450px;
-      width: 300px;
-    }
-  </style>
 </head>
 
 <body>
@@ -38,15 +32,20 @@
     </div>
   </div>
   <hr>
+
   <div class="container">
-    <div class="dropdown">
+    <div class="dropdown text-center col">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select a language
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+        <input class="form-control" type="text" id="langSearch" placeholder="Search a language" aria-label="Search">
         <a class="dropdown-item" href="#">English</a>
         <a class="dropdown-item" href="#">French</a>
         <a class="dropdown-item" href="#">Klingon</a>
+        <a class="dropdown-item" href="#">Swahili</a>
+        <a class="dropdown-item" href="#">Binary</a>
+        <a class="dropdown-item" href="#">Javascript</a>
       </div>
     </div>
   </div>
