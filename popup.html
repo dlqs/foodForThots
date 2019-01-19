@@ -2,16 +2,26 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <style>
-    button {
-      height: 30px;
-      width: 30px;
-      outline: none;
+    body {
+      height: 300px;
+      width: 300px;
     }
   </style>
 </head>
 
 <body>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select a language
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">English</a>
+      <a class="dropdown-item" href="#">French</a>
+      <a class="dropdown-item" href="#">Klingon</a>
+    </div>
+  </div>
   <button id="changeColor"></button>
   <script src="popup.js"></script>
 </body>
