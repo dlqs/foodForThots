@@ -31,6 +31,26 @@ body {
 	margin-bottom: 1rem;
 }
 
+.form-game {
+	width: 100%;
+}
+
+.form-game .btn {
+	border-radius: 5rem;
+	letter-spacing: .1rem;
+	font-weight: bold;
+}
+
+.form-label-group {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.form-label-group input {
+	height: auto;
+	border-radius: 2rem;
+}
+
 .pre-scrollable {
 	max-height: 150px;
 	overflow-y: scroll;

@@ -50,4 +50,17 @@ $('#loginForm').submit(function(event) {
 $('#startGameForm').submit(function(event) {
   event.preventDefault();
   const selectedLang = $('#dropdownMenuButton').text();
+  startGame(selectedLang);
 });
+
+function startGame(language) {
+  $('#mainBody').html(`
+    <h5 class="text-center spacer">some word</h5>
+    <form class="form-game">
+      <div class="form-label-group">
+        <input type="text" id="inputWord" class="form-control" placeholder="Answer" required autofocus>
+      </div>
+      <button class = "btn btn-primary btn-block" type="submit">Translate!</button>
+    </form>
+  `);
+}
