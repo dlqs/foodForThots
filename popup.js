@@ -40,6 +40,11 @@ $('#startGameForm').submit(function(event) {
 });
 
 function startGame(language) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame" }, function (response) {
+      console.log(response);
+    });
+  });
   $('#mainBody').html(`
     <h5 class="text-center spacer">some word</h5>
     <form class="form-game">
@@ -50,34 +55,3 @@ function startGame(language) {
     </form>
   `);
 }
-
-const NUM_REPLACE = 25;
-
-function replaceForLanguage(name) {
-  const url = chrome.runtime.getURL(`corpus/${name}.json`);
-
-  fetch(url)
-    .then((response) => response.json()) //assuming file contains json
-    .then((json) => {
-      let body = document.body.innerText.trim().toLowerCase().split(/\s+/);
-      body = body.map(elem => elem.toLowerCase().trim());
-
-      let numReplaced = 0;
-      
-      // find 
-      for (let word of body) {
-        if (json.hasOwnProperty(word)) {
-          numReplaced++;
-          console.log(`Replacing ${word} with ${json[word]}`);
-          let re = '\\s+' + word + '\\s+';
-          let val = ' <ins>' + json[word] + '</ins> ';
-          document.body.innerHTML = document.body.innerHTML.replace(new RegExp(re, "gi"), val);
-          if (numReplaced > NUM_REPLACE) {
-            return;
-          }
-        }
-      }
-    })
-}
-
-replaceForLanguage('Corpus-fr');
