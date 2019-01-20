@@ -1,3 +1,6 @@
+//Hide start game button
+$('#startBtn').hide();
+
 // Populate start screen dropdown menu with available languages
 $(function() {
   $.ajax({
@@ -16,6 +19,9 @@ $(function() {
         console.log('clicked');
         $(this).parents('.dropdown').find('.btn').html($(this).text());
         $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
+
+        // Show start game button
+        $('#startBtn').show(50);
       });
     },
     error: function(xhr, status) {
