@@ -83,7 +83,7 @@ const MAX_NUM_TRIES = 3;
 
 function askQuestion(questionNum, questions, answers, tries) {
   const question = document.getElementById('questionWord')
-  if (questionNum > questions.length) {
+  if (questionNum >= questions.length) {
     question.innerText = 'Completed! Congrats';
     return;
   }
@@ -91,6 +91,7 @@ function askQuestion(questionNum, questions, answers, tries) {
   const ans = answers[questionNum];
   document.getElementById('translateButton').addEventListener('click', (event) => {
     const userAns = document.getElementById('inputWord').value.trim().toLowerCase();
+    document.getElementById('inputWord').value = '';
     if (userAns === ans) {
       console.log('Correct answer');
       askQuestion(questionNum + 1, questions, answers, 0);
