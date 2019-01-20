@@ -1,6 +1,7 @@
 body {
 	height: 350px;
 	width: 300px;
+	background-color: #b3d7ff;
 }
 
 .spacer {
@@ -11,6 +12,7 @@ body {
 
 .container-cust {
 	margin-top: 1rem;
+	background-color: #b3d7ff;
 }
 
 .start-game {
@@ -54,4 +56,13 @@ body {
 .pre-scrollable {
 	max-height: 150px;
 	overflow-y: scroll;
+}
+
+.card-header {
+	background-color: #F18D9E;
+	colour: white;
+}
+
+.btn-secondary {
+	background-color: #ACB0BD;
 }
