@@ -1,5 +1,5 @@
 
-const NUM_REPLACE = 25;
+const NUM_REPLACE = 5;
 
 function replaceForLanguage(name) {
   const url = chrome.runtime.getURL(`corpus/${name}.json`);
@@ -27,7 +27,6 @@ function replaceForLanguage(name) {
           }
         }
       }
-      console.log('start completed', translatedPairs);
       playGame(translatedPairs);
     })
 }
@@ -35,9 +34,6 @@ function replaceForLanguage(name) {
 function playGame(translatedPairs) {
   const port = chrome.runtime.connect({ name: "food" });
 
-  Object.entries(translatedPairs).forEach(([key, value]) => {
-    console.log(`${key} ${value}`);
-  });
   // reformat translated pairs
   const questions = Object.values(translatedPairs);
   const answers = Object.keys(translatedPairs);

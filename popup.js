@@ -72,19 +72,41 @@ function startGame(language) {
   chrome.runtime.onConnect.addListener(function (port) {
     console.assert(port.name === "food");
     port.onMessage.addListener(function (msg) {
-      console.log('Popup received: ' + msg);
       const questions = msg.questions;
       const answers = msg.answers;
-      askQuestion(0, questions, answers);
+      askQuestion(0, questions, answers, 0);
     });
   });
 }
 
-function askQuestion(questionNum, questions, answers) {
-  document.getElementById('questionWord').innerText = questions[questionNum];
+const MAX_NUM_TRIES = 3;
+
+function askQuestion(questionNum, questions, answers, tries) {
+  const question = document.getElementById('questionWord')
+  if (questionNum > questions.length) {
+    question.innerText = 'Completed! Congrats';
+    return;
+  }
+  question.innerText = questions[questionNum];
   const ans = answers[questionNum];
   document.getElementById('translateButton').addEventListener('click', (event) => {
-    console.log(document.getElementById('inputWord').value);
-    askQuestion(questionNum + 1, questions, answers);
+    const userAns = document.getElementById('inputWord').value.trim().toLowerCase();
+    if (userAns === ans) {
+      console.log('Correct answer');
+      askQuestion(questionNum + 1, questions, answers, 0);
+    } else {
+      console.log('Wrong answer');
+      if (tries >= MAX_NUM_TRIES) {
+        question.innerText = 'Too many tries! Answer: ' + ans;
+        setTimeout(() => {
+          askQuestion(questionNum + 1, questions, answers, 0);
+        }, 1500);
+      } else {
+        question.innerText = 'Wrong answer! Try again';
+        setTimeout(() => {
+          askQuestion(questionNum, questions, answers, tries + 1);
+        }, 1500);
+      }
+    }
   }, {once: true})
 }
