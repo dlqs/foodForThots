@@ -54,6 +54,11 @@ $('#startGameForm').submit(function(event) {
 });
 
 function startGame(language) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame" }, function (response) {
+      console.log(response);
+    });
+  });
   $('#mainBody').html(`
     <h5 class="text-center spacer">some word</h5>
     <form class="form-game">
