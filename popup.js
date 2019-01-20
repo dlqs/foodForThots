@@ -1,3 +1,4 @@
+// Populate start screen dropdown menu with available languages
 $(function() {
   $.ajax({
     type: 'get',
@@ -10,18 +11,18 @@ $(function() {
         const child = '<a class="dropdown-item" href="#">' + langName + '</a>'
         $(child).appendTo('#dropdownMenu');
       });
+      // Change Dropdown menu title to option text when option is clicked
+      $('.dropdown-menu a').click(function () {
+        console.log('clicked');
+        $(this).parents('.dropdown').find('.btn').html($(this).text());
+        $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
+      });
     },
     error: function(xhr, status) {
       console.log(status);
     }
   })
 })
-
-// Change Dropdown menu title to option text
-$('.dropdown-menu a').click(function () {
-  $(this).parents('.dropdown').find('.btn').html($(this).text());
-  $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
-});
 
 // Handle Dropdown search for languages
 $('#langSearch').keyup(function() {
@@ -53,6 +54,7 @@ $('#startGameForm').submit(function(event) {
   startGame(selectedLang);
 });
 
+// Game handler
 function startGame(language) {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame" }, function (response) {
