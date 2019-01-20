@@ -1,9 +1,23 @@
-// Change Dropdown menu title to option text
-$('.dropdown-menu a').click(function () {
-  $(this).parents('.dropdown').find('.btn').html($(this).text());
-  $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
-});
+$(function() {
+  $.ajax({
+    type: 'get',
+    url: 'https://s3-ap-southeast-1.amazonaws.com/hacknroll',
+    dataType: 'xml',
+    success: function(data) {
+      let $language = $(data).find('Contents');
+      $language.each(function() {
+        const langName = $(this).find('Key').text().split('-')[1];
+        const child = '<a class="dropdown-item" href="#">' + langName + '</a>'
+        $(child).appendTo('#dropdownMenu');
+      });
+    },
+    error: function(xhr, status) {
+      console.log(status);
+    }
+  })
+})
 
+// Change Dropdown menu title to option text
 $('.dropdown-menu a').click(function () {
   $(this).parents('.dropdown').find('.btn').html($(this).text());
   $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
@@ -47,6 +61,6 @@ function startGame(language) {
         <input type="text" id="inputWord" class="form-control" placeholder="Answer" required autofocus>
       </div>
       <button class = "btn btn-primary btn-block" type="submit">Translate!</button>
-    </form>
+    </form-game>
   `);
 }
