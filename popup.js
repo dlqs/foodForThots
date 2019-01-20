@@ -41,10 +41,9 @@ $('#startGameForm').submit(function(event) {
 
 function startGame(language) {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame" }, function (response) {
-      console.log(response);
-    });
+    chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame" });
   });
+
   $('#mainBody').html(`
     <h5 class="text-center spacer">some word</h5>
     <form class="form-game">
@@ -54,4 +53,17 @@ function startGame(language) {
       <button class = "btn btn-primary btn-block" type="submit">Translate!</button>
     </form>
   `);
+
+  chrome.runtime.onConnect.addListener(function (port) {
+    console.assert(port.name === "food");
+    port.onMessage.addListener(function (msg) {
+      console.log(msg);
+      const translatedPairs = msg;
+      Object.entries(translatedPairs).forEach(([key, value]) => {
+        console.log(`${key} ${value}`);
+        //$('.inputWord').val(value);
+
+      });
+    });
+  });
 }

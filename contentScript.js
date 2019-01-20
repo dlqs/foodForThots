@@ -3,6 +3,7 @@ const NUM_REPLACE = 25;
 
 function replaceForLanguage(name) {
   const url = chrome.runtime.getURL(`corpus/${name}.json`);
+  const translatedPairs = {};
 
   fetch(url)
     .then((response) => response.json()) //assuming file contains json
@@ -17,19 +18,34 @@ function replaceForLanguage(name) {
         if (json.hasOwnProperty(word)) {
           numReplaced++;
           console.log(`Replacing ${word} with ${json[word]}`);
+          translatedPairs[word] = json[word];
           let re = '\\s+' + word + '\\s+';
           let val = ' <ins>' + json[word] + '</ins> ';
           document.body.innerHTML = document.body.innerHTML.replace(new RegExp(re, "gi"), val);
           if (numReplaced > NUM_REPLACE) {
-            return;
+            break;
           }
         }
       }
+      console.log('start completed', translatedPairs);
+      playGame(translatedPairs);
     })
+}
+
+function playGame(translatedPairs) {
+  const port = chrome.runtime.connect({ name: "food" });
+
+  Object.entries(translatedPairs).forEach(([key, value]) => {
+    console.log(`${key} ${value}`);
+  });
+  port.postMessage(translatedPairs);
+  //port.postMessage({ done: true });
 }
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    console.log('Starting game...');
-    replaceForLanguage('Corpus-fr');
+    if (request.msg === 'startGame') {
+      console.log('Starting game...');
+      replaceForLanguage('Corpus-fr');
+    }
   });
