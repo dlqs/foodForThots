@@ -1,13 +1,23 @@
 
-const NUM_REPLACE = 5;
+const NUM_REPLACE = 25;
 
 function replaceForLanguage(name) {
-  const url = chrome.runtime.getURL(`corpus/${name}.json`);
+  //const url = chrome.runtime.getURL(`corpus/${name}.json`);
+  const url = `https://s3-ap-southeast-1.amazonaws.com/hacknroll/Corpus-${name}.json`
   const translatedPairs = {};
+  console.log(url);
 
-  fetch(url)
-    .then((response) => response.json()) //assuming file contains json
+  return fetch(url, {
+    method: 'get',
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+    .then((response) => {
+      return response.json();
+    }) //assuming file contains json
     .then((json) => {
+      console.log(json);
       let body = document.body.innerText.trim().toLowerCase().split(/\s+/);
       body = body.map(elem => elem.toLowerCase().trim());
 
@@ -29,6 +39,9 @@ function replaceForLanguage(name) {
       }
       playGame(translatedPairs);
     })
+    .catch((err) => {
+      console.log(err);
+    })
 }
 
 function playGame(translatedPairs) {
@@ -45,6 +58,6 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.msg === 'startGame') {
       console.log('Starting game...');
-      replaceForLanguage('Corpus-fr');
+      replaceForLanguage(request.lang);
     }
   });

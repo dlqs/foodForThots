@@ -10,7 +10,7 @@ $(function() {
     success: function(data) {
       let $language = $(data).find('Contents');
       $language.each(function() {
-        const langName = $(this).find('Key').text().split('-')[1];
+        const langName = $(this).find('Key').text().split('-')[1].slice(0, -5);
         const child = '<a class="dropdown-item" href="#">' + langName + '</a>'
         $(child).appendTo('#dropdownMenu');
       });
@@ -63,7 +63,7 @@ $('#startGameForm').submit(function(event) {
 // Game handler
 function startGame(language) {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame" });
+    chrome.tabs.sendMessage(tabs[0].id, { msg: "startGame", lang: language });
   });
 
   $('#mainBody').html(`
@@ -103,7 +103,7 @@ function askQuestion(questionNum, questions, answers, tries) {
       askQuestion(questionNum + 1, questions, answers, 0);
     } else {
       console.log('Wrong answer');
-      if (tries >= MAX_NUM_TRIES) {
+      if (tries >= MAX_NUM_TRIES - 1) {
         question.innerText = 'Too many tries! Answer: ' + ans;
         setTimeout(() => {
           askQuestion(questionNum + 1, questions, answers, 0);
