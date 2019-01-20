@@ -30,6 +30,6 @@ function replaceForLanguage(name) {
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    replaceForLanguage('Corpus-fr');
     console.log('Starting game...');
+    replaceForLanguage('Corpus-fr');
   });
