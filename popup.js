@@ -61,25 +61,30 @@ function startGame(language) {
   });
 
   $('#mainBody').html(`
-    <h5 class="text-center spacer">some word</h5>
-    <form class="form-game">
-      <div class="form-label-group">
-        <input type="text" id="inputWord" class="form-control" placeholder="Answer" required autofocus>
-      </div>
-      <button class = "btn btn-primary btn-block" type="submit">Translate!</button>
-    </form-game>
+    <h5 class="text-center spacer" id="questionWord">some word</h5>
+    <div class="form-label-group">
+      <input type="text" id="inputWord" class="form-control" placeholder="Answer" required autofocus>
+    </div>
+    <button class="btn btn-primary btn-block" id="translateButton" type="button">Translate!</button>
   `);
+
 
   chrome.runtime.onConnect.addListener(function (port) {
     console.assert(port.name === "food");
     port.onMessage.addListener(function (msg) {
-      console.log(msg);
-      const translatedPairs = msg;
-      Object.entries(translatedPairs).forEach(([key, value]) => {
-        console.log(`${key} ${value}`);
-        //$('.inputWord').val(value);
-
-      });
+      console.log('Popup received: ' + msg);
+      const questions = msg.questions;
+      const answers = msg.answers;
+      askQuestion(0, questions, answers);
     });
   });
+}
+
+function askQuestion(questionNum, questions, answers) {
+  document.getElementById('questionWord').innerText = questions[questionNum];
+  const ans = answers[questionNum];
+  document.getElementById('translateButton').addEventListener('click', (event) => {
+    console.log(document.getElementById('inputWord').value);
+    askQuestion(questionNum + 1, questions, answers);
+  }, {once: true})
 }

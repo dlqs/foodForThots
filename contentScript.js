@@ -38,7 +38,10 @@ function playGame(translatedPairs) {
   Object.entries(translatedPairs).forEach(([key, value]) => {
     console.log(`${key} ${value}`);
   });
-  port.postMessage(translatedPairs);
+  // reformat translated pairs
+  const questions = Object.values(translatedPairs);
+  const answers = Object.keys(translatedPairs);
+  port.postMessage({questions: questions, answers: answers});
   //port.postMessage({ done: true });
 }
 
