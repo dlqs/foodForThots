@@ -31,9 +31,5 @@ function replaceForLanguage(name) {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     replaceForLanguage('Corpus-fr');
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    if (request.msg == "startGame")
-      sendResponse({farewell: "YOLO"});
+    console.log('Starting game...');
   });
